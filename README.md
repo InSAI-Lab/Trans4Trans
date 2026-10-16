@@ -99,7 +99,8 @@ Before testing the model, please change the `TEST_MODEL_PATH` of the config file
 ```bash
 python -m torch.distributed.launch --nproc_per_node=4 tools/eval.py --config-file configs/trans10kv2/pvt_tiny_FPT.yaml
 ```
-The weights can be downloaded from [BaiduDrive](https://pan.baidu.com/s/1N2VbNRwrqsQELMw7A6_xew?pwd=mq2v).
+
+The weights can be downloaded from Hugging Face at [InSAI-Lab/Trans4trans](https://huggingface.co/InSAI-Lab/Trans4trans) (mirror: [BaiduDrive](https://pan.baidu.com/s/1N2VbNRwrqsQELMw7A6_xew?pwd=mq2v)).
 
 
 
@@ -115,7 +116,17 @@ pip install pyttsx3
 pip install pydub
 ```
 
-Download the pretrained weight from [GoogleDrive](https://drive.google.com/drive/folders/1_b1oSheDtniegqirWNPj7xb9VcaU-25r?usp=sharing) and save as `workdirs/cocostuff/model_cocostuff.pth` and `workdirs/trans10kv2/model_trans.pth`.
+Pretrained weights are hosted at Hugging Face model repository [InSAI-Lab/Trans4trans](https://huggingface.co/InSAI-Lab/Trans4trans). Download and save as `workdirs/cocostuff/model_cocostuff.pth` and `workdirs/trans10kv2/model_trans.pth`:
+
+| Checkpoint | Task / Dataset | Size | Hugging Face Download |
+| :--- | :--- | :---: | :--- |
+| `model_cocostuff.pth` | COCO-Stuff General Context | 162.6 MB | [Download](https://huggingface.co/InSAI-Lab/Trans4trans/resolve/main/cocostuff/model_cocostuff.pth) |
+| `model_trans.pth` | Trans10K-v2 Transparent Objects | 150.3 MB | [Download](https://huggingface.co/InSAI-Lab/Trans4trans/resolve/main/trans10kv2/model_trans.pth) |
+
+Or download all weights via Hugging Face Hub CLI:
+```bash
+hf download InSAI-Lab/Trans4trans --local-dir workdirs
+```
 
 (Optional) Please check [`demo.py`](./demo.py) to customize the configurations, for example, the speech volumn and frequency.
 
